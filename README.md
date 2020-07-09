@@ -1,4 +1,4 @@
-1. Import sql into your database
+1. Import sql into your database: File graphql-database.sql
 2. Into the server directory :
 Installing dependancies  and run
 ```
