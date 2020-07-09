@@ -6,7 +6,7 @@ class PersonPreview extends React.Component {
   
   static propTypes = {
     athlete: PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.number,
       firstName: PropTypes.string,
       lastName:PropTypes.string,
       image: PropTypes.string

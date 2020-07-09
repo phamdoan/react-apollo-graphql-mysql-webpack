@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize';
 
 const Conn = new Sequelize(
-  'database',
-  'username',
-  'password',
+  'graphql', // db name
+  'root', // username
+  '1qaz2wsx', // password
   {
     dialect:'mysql',
     host: 'localhost'

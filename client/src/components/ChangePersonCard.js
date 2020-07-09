@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { gql, graphql } from 'react-apollo'
-//import { gql, graphql, compose } from 'react-apollo'
+// import { gql, graphql } from 'react-apollo'
+import { gql, graphql, compose } from 'react-apollo'
 import { propType } from 'graphql-anywhere'
 import styled from 'styled-components'
 
@@ -49,16 +49,16 @@ class ChangePersonCard extends React.Component {
     handleCancel: PropTypes.func.isRequired,
     afterChange: PropTypes.func.isRequired,
     updatePerson: PropTypes.func.isRequired,
-    ///deletePerson: PropTypes.func.isRequired
+    deletePerson: PropTypes.func.isRequired
   }
 
   constructor (props) {
     super(props)
     const { firstName,lastName, image } = props.person
-    //console.log(props.person);
     this.state = { firstName, lastName, image }
     this.handleUpdate = this.handleUpdate.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    console.log(this.props)
   }
 
   render () {
@@ -112,8 +112,8 @@ class ChangePersonCard extends React.Component {
   }
 
   handleDelete () {
-    const { id } = this.props.pokemon
-    this.props.deletePokemon({ variables: { id } })
+    const { id } = this.props.person
+    this.props.deletePerson({ variables: { id } })
     .then(this.props.afterChange)
   }
 }
@@ -126,16 +126,16 @@ const updatePerson = gql`
   }
 `
 
-/*
+
 const deletePerson = gql`
-  mutation deleteAuthor($id: ID!) {
+  mutation deleteAuthor($id: Int!) {
     deleteAuthor(id: $id) {
       id
     }
   }
 `
-*/
-/*
+
+
 // compose for multiple constants graphql
 const ChangePersonCardWithMutations = compose(
   graphql(updatePerson, {
@@ -145,8 +145,8 @@ const ChangePersonCardWithMutations = compose(
     name: 'deletePerson'
   })
 )(ChangePersonCard)
-*/
+
 // OR for only one constant graphql
-const ChangePersonCardWithMutations = graphql(updatePerson,{name:'updatePerson'})(ChangePersonCard)
+// const ChangePersonCardWithMutations = graphql(updatePerson,{name:'updatePerson'})(ChangePersonCard)
 
 export default ChangePersonCardWithMutations

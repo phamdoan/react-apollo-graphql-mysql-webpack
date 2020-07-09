@@ -1,13 +1,8 @@
 import express from 'express';
 import GraphHTTP from 'express-graphql';
-import bodyParser from 'body-parser';
 import cors from 'cors';
 
 import Sschema from './src/schema';
-
-import { execute, subscribe } from 'graphql';
-import { createServer } from 'http';
-import { SubscriptionServer } from 'subscriptions-transport-ws';
 
 // Const
 const PORT = 4000;

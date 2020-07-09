@@ -47,7 +47,8 @@ class AddPersonCard extends React.Component {
     this.state = {
       firstName: '',
       lastName: '',
-      image: ''
+      image: 'https://www.w3schools.com/w3css/img_lights.jpg',
+      email: ''
     }
     this.handleSave = this.handleSave.bind(this)
     this.handleCancel = this.handleCancel.bind(this)
@@ -57,6 +58,12 @@ class AddPersonCard extends React.Component {
     return (
       <div className="w-100 pa4 flex justify-center">
         <Card style={{ maxWidth: 400 }}>
+        <input
+            className="w-100 padding-1 mv2"
+            value={ this.state.email }
+            placeholder="Email"
+            onChange={ (e) => this.setState({ email: e.target.value }) }
+          />
           <input
             className="w-100 padding-1 mv2"
             value={ this.state.firstName }
@@ -99,12 +106,13 @@ class AddPersonCard extends React.Component {
   handleSave () {
     console.log('match :: '+this.props.match.params.firstName);
     const { mutate } = this.props
-    const { firstName, lastName, image } = this.state
+    const { firstName, lastName, image, email } = this.state
     mutate({
       variables: {
         firstName,
         lastName,
-        image
+        image,
+        email
       }
     })
     .then(() => {

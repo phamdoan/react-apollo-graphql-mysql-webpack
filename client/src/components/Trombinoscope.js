@@ -31,7 +31,6 @@ class Trombinoscope extends React.Component {
 
   render () {
     console.log('load : '+this.props.data.loading);
-    //console.log('people : '+this.props.data.authors);
     if (this.props.data.loading) {
       return (<div>Loading...</div>)
     }
@@ -56,7 +55,7 @@ class Trombinoscope extends React.Component {
   }
 }
 const TrombinoscopeWithData = graphql(ListQuery, {
-  options: { pollInterval: 5000 },
+  options: { pollInterval: 9000 },
 })(Trombinoscope)
 
 export default TrombinoscopeWithData

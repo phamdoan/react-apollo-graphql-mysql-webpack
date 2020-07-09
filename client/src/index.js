@@ -14,10 +14,9 @@ import 'tachyons'
 import './index.css'
 
 const networkInterface = createNetworkInterface({
-  uri: 'http://localhost:4000/graphql'
+  uri: process.env.API_BASE
 })
 const dataIdFromObject = (obj) => obj.id
-
 const client = new ApolloClient({ networkInterface, dataIdFromObject })
 ReactDOM.render((
   <ApolloProvider client={ client }>
