@@ -2,6 +2,7 @@
 2. Config db
 cd server
 open src/db.js
+```
 const Conn = new Sequelize(
   'graphql', // db name
   'root', // username
@@ -11,6 +12,7 @@ const Conn = new Sequelize(
     host: 'localhost'
   }
 );
+```
 3. Into the server directory :
 Installing dependancies  and run
 ```
