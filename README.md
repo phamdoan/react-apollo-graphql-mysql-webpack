@@ -1,5 +1,5 @@
 1. Import sql into your database: File graphql-database.sql
-2. Config db
+2. Into the server directory :
 cd server
 open src/db.js
 ```
@@ -13,14 +13,13 @@ const Conn = new Sequelize(
   }
 );
 ```
-3. Into the server directory :
 Installing dependancies  and run
 ```
 npm install
 npm run start
 ```
 
-4. Into the client directory :
+3. Into the client directory :
 Open another bash and run 
 
 ```
